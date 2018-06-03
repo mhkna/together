@@ -1,2 +1,22 @@
-<h1>Accounts#new</h1>
-<p>Find me in app/views/accounts/new.html.erb</p>
+<%= form_with model: @account, local: true do |f| %>
+
+  <% if @account.errors %>
+    <div id="error_explanation">
+      <ul>
+        <% @account.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :username %><br>
+    <%= f.text_field :username %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Enter Round" %>
+  </div>
+
+<% end %>
