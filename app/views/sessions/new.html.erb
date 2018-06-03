@@ -1,0 +1,28 @@
+<h1>Log In</h1>
+<%= form_with url: sessions_path do |f| %>
+
+  <% if @errors %>
+    <div id="error_explanation">
+      <ul>
+        <% @errors.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag "Log In" %>
+  </div>
+
+<% end %>
