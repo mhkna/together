@@ -1,0 +1,9 @@
+<%= form_with(model: [ @account, @account.comments.build ], local: true) do |form| %>
+  <div>
+    <%= form.text_field :text %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

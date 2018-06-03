@@ -12,8 +12,8 @@
       <td><%= account.website %></td>
       <td><%= account.username %></td>
       <% if account.user == current_user %>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article_path(article),
+        <td><%= link_to 'Edit', edit_account_path(account) %></td>
+        <td><%= link_to 'Destroy', account_path(account),
                 method: :delete,
                 data: { confirm: 'Are you sure?' } %></td>
       <% end %>

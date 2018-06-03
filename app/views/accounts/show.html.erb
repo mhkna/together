@@ -1,2 +1,9 @@
-<h1>Accounts#show</h1>
-<p>Find me in app/views/accounts/show.html.erb</p>
+<div>
+  <%= @account.username %>
+</div>
+
+<h2>Comments</h2>
+<%= render @account.comments %>
+
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>

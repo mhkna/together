@@ -1,0 +1,9 @@
+<div>
+  <%= comment.text %>
+</div>
+
+<div>
+  <%= link_to 'Destroy Comment', [comment.account, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</div>
