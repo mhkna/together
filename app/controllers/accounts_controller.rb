@@ -15,7 +15,7 @@ class AccountsController < ApplicationController
     # @account.round.id = 1
 
     if @account.save
-      redirect_to account_path(@account.id)
+      redirect_to account_url(@account)
     else
       render :new
     end

@@ -7,7 +7,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_url, notice: 'Thank you for signing up!'
+      flash[:success] = "Welcome to the Sample App!"
+      redirect_to root_url#, notice: 'Thank you for signing up!'
     else
       render :new, status: 422
     end

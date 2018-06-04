@@ -10,20 +10,22 @@
   </head>
 
   <body>
-    <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>"><%= value %></div>
-    <% end %>
-
-    <div id="user_header">
-      <% if logged_in? %>
-         <%= link_to 'Logout', session_path(current_user.id), method: :delete %>
-      <% else %>
-         <%= link_to "Sign Up", new_user_path %>
-         <%= link_to "Log In", new_session_path %>
+    <div class="container">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
-    </div>
 
-    <%= yield %>
-    <%= debug(params) if Rails.env.development? %>
+      <div id="user_header">
+        <% if logged_in? %>
+           <%= link_to 'Logout', session_path(current_user.id), method: :delete %>
+        <% else %>
+           <%= link_to "Sign Up", new_user_path %>
+           <%= link_to "Log In", new_session_path %>
+        <% end %>
+      </div>
+
+      <%= yield %>
+      <%= debug(params) if Rails.env.development? %>
+    </div>
   </body>
 </html>
