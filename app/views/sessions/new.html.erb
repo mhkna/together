@@ -1,7 +1,8 @@
 <h1>Log In</h1>
-<%= form_with url: sessions_path do |f| %>
 
-  <% if @errors %>
+<%= form_with scope: :session, url: login_path do |f| %>
+
+  <!-- <% if @errors %>
     <div id="error_explanation">
       <ul>
         <% @errors.each do |error| %>
@@ -9,7 +10,7 @@
         <% end %>
       </ul>
     </div>
-  <% end %>
+  <% end %> -->
 
   <div class="field">
     <%= f.label :email %><br>
@@ -25,4 +26,5 @@
     <%= submit_tag "Log In" %>
   </div>
 
+  <p>New user? <%= link_to "Sign up now!", signup_path %></p>
 <% end %>

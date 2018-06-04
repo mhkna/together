@@ -1,6 +1,4 @@
 class AccountsController < ApplicationController
-  include UsersHelper
-
   def index
     @accounts = Account.all
   end
