@@ -30,7 +30,7 @@ class AccountsController < ApplicationController
 
   private
 
-  def account_params
-    params.require(:account).permit(:website, :username)
-  end
+    def account_params
+      params.require(:account).permit(:website, :username)
+    end
 end
