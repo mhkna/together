@@ -7,3 +7,12 @@
 
 <h2>Add a comment:</h2>
 <%= render 'comments/form' %>
+
+
+
+<h1><%= @account.site %></h1>
+<div>
+  <% @account.round.account_names[@account.id].each do |name| %>
+    <%= name %>
+  <% end %>
+</div>
