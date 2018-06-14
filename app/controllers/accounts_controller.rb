@@ -10,7 +10,7 @@ class AccountsController < ApplicationController
   def create
     @account = Account.new(account_params)
     @account.user = current_user
-    @account.round_id = session[:round_id]
+    @account.round = Round.last #session[:round_id]
 
     if @account.save
       redirect_to account_url(@account)

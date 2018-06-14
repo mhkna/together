@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   resources :accounts do
     resources :comments, only: [:create, :destroy]
   end
+  resources :rounds, only: [:show]  
 
 end

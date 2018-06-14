@@ -4,4 +4,8 @@ class RoundsController < ApplicationController
     @round.save
     session[:round_id] = @round.id
   end
+
+  def show
+    @round = Round.find(params[:id])
+  end
 end
