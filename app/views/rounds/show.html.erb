@@ -1,0 +1,9 @@
+<p>
+  Like and comment on the latest posts by the users below.
+</p>
+
+<% @round.account_names[0].each do |name| %>
+  <div>
+    <%= name %>
+  </div>
+<% end %>
