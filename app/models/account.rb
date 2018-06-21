@@ -8,4 +8,8 @@ class Account < ApplicationRecord
   def website_is_ig
     self.website = "instagram"
   end
+
+  # def like_and_comment
+  #   round.account_names
+  # end
 end

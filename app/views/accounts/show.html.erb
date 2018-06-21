@@ -8,7 +8,15 @@
 <h2>Add a comment:</h2>
 <%= render 'comments/form' %>
 
-<h1><%= @account.website %></h1>
-<div>
-  <% @account.round.account_names[@account.id] %>
-</div>
+<p>
+  Like and comment on the latest post by the following users
+</p>
+
+usernames:
+<% @account.round.account_names[0].each do |name| %>
+  <div>
+    <%= name %>
+  </div>
+<% end %>
+
+  #[@account.id]
