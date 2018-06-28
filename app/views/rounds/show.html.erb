@@ -2,8 +2,30 @@
   Like and comment on the latest posts by the users below.
 </p>
 
-<% @round.account_names[0].each do |name| %>
-  <div>
-    <%= name %>
+<h3><%= @round.accounts.first.website.capitalize %></h3>
+<!-- <% @round.account_names[0].each do |name| %>
+  <div class="container">
+    <div>
+      <%= name %>
+    </div>
+
+    <div>
+      <%= @round.comments(name) %>
+    </div>
   </div>
-<% end %>
+<% end %> -->
+
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Suggested Comment</th>
+    <th colspan="2"></th>
+  </tr>
+
+  <% @round.account_names[0].each do |name| %>
+    <tr>
+      <td><%= name %></td>
+      <td><%= @round.comments(name) %></td>
+    </tr>
+  <% end %>
+</table>

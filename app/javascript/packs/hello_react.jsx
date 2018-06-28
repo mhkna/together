@@ -6,36 +6,21 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
-// const Hello = props => (
-//   <div>Hello {props.name}!</div>
-// )
-//
-// Hello.defaultProps = {
-//   name: 'David'
-// }
-//
-// Hello.propTypes = {
-//   name: PropTypes.string
-// }
-//
-// document.addEventListener('DOMContentLoaded', () => {
-//   ReactDOM.render(
-//     <Hello name="React" />,
-//     document.body.appendChild(document.createElement('div')),
-//   )
-// })
+const Hello = props => (
+  <div>Hello {props.name}!</div>
+)
 
-function tick() {
-  const element = (
-    <div>
-      <h1>Hello, world!</h1>
-      <h2>It is {new Date().toLocaleTimeString()}.</h2>
-    </div>
-  );
-  ReactDOM.render(
-    element,
-    document.getElementById('root')
-  );
+Hello.defaultProps = {
+  name: 'David'
 }
 
-setInterval(tick, 1000);
+Hello.propTypes = {
+  name: PropTypes.string
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  ReactDOM.render(
+    <Hello name="React" />,
+    document.body.appendChild(document.createElement('div')),
+  )
+})

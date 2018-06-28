@@ -7,15 +7,7 @@
 <%= link_to 'Leave', account_path, method: :delete, data: { confirm: 'Are you sure you wish to leave this round?' } %>
 
 <p>
-  Round begins in
-</p>
-<!-- <p>
-  Like and comment on the latest post by the following users
+  Round begins (((for users )))) in
 </p>
 
-usernames:
-<% @account.round.account_names[0].each do |name| %>
-  <div>
-    <%= name %>
-  </div>
-<% end %> -->
+<%= link_to 'Play Round TEMP', round_path(@account.round) %>
