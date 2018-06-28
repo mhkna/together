@@ -1,9 +1,9 @@
 <%= form_with(model: [ @account, @account.comments.build ], local: true) do |form| %>
   <div>
-    <%= form.text_field :text %>
+    <%= form.text_field :text, autofocus: true, placeholder: 'Comment' %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Join Round" %>
   </div>
 <% end %>

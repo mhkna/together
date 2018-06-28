@@ -1,14 +1,15 @@
-<div>
-  <%= @account.username %>
-</div>
+<p>
+  Your <%= @account.website %> username:
+</p>
+<h3><%= @account.username %></h3>
 
-<h2>Comments</h2>
-<%= render @account.comments %>
-
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
+<%= link_to 'Edit', edit_account_path %> |
+<%= link_to 'Leave', account_path, method: :delete, data: { confirm: 'Are you sure you wish to leave this round?' } %>
 
 <p>
+  Round begins in
+</p>
+<!-- <p>
   Like and comment on the latest post by the following users
 </p>
 
@@ -17,6 +18,4 @@ usernames:
   <div>
     <%= name %>
   </div>
-<% end %>
-
-  #[@account.id]
+<% end %> -->
