@@ -1,1 +1,21 @@
-<%= render 'form' %>
+<%= form_with model: @account, local: true do |f| %>
+
+  <% if @account.errors %>
+    <div id="error_explanation">
+      <ul>
+        <% @account.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :username, placeholder: 'Username' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Save" %>
+  </div>
+
+<% end %>
