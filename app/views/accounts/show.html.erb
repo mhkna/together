@@ -7,8 +7,10 @@
 <%= link_to 'Leave', account_path, method: :delete, data: { confirm: 'Are you sure you wish to leave this round?' } %>
 
 <p>
-  ((Round begins in))
+  Round begins in
 </p>
+
+<div id="counter-container"></div>
 
 <div>
   <%= link_to 'Edit Suggested Comments', account_comments_path(@account) %>
