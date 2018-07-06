@@ -6,16 +6,51 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
-function tick() {
-  const element = (
-    <div>
-      <h2>{new Date().toLocaleTimeString()}</h2>
-    </div>
-  );
-  ReactDOM.render(
-    element,
-    document.getElementById('counter-container')
-  )
+class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      minutes: 59 - new Date().getMinutes(),
+      seconds: 59 - new Date().getSeconds()
+    };
+  }
+
+  componentDidMount() {
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
+  zeroPad(number) {
+    if (number < 10) {
+      number = ("0" + number).slice(-2);
+    }
+    return number
+  }
+
+  tick() {
+    const date = new Date ()
+    this.setState({
+      minutes: 59 - date.getMinutes(),
+      seconds: 59 - date.getSeconds()
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <h3>{this.zeroPad(this.state.minutes)}:{this.zeroPad(this.state.seconds)}</h3>
+      </div>
+    );
+  }
 }
 
-setInterval(tick, 1000);
+ReactDOM.render(
+  <Clock />,
+  document.getElementById('counter-container')
+);
