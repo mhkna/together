@@ -1,31 +1,14 @@
 <p>
-  Like and comment on the latest posts by the users below.
+  Like and comment on the latest post by the user below.
 </p>
 
 <h3><%= @round.accounts.first.website.capitalize %></h3>
-<!-- <% @round.account_names[0].each do |name| %>
-  <div class="container">
-    <div>
-      <%= name %>
-    </div>
 
-    <div>
-      <%= @round.comments(name) %>
-    </div>
-  </div>
-<% end %> -->
+<div>
+  <h5>username:</h5>
+  <%= @round.account_slice(5).username %>
+</div>
 
-<table>
-  <tr>
-    <th>Username</th>
-    <th>Suggested Comment</th>
-    <th colspan="2"></th>
-  </tr>
-
-  <% @round.account_names[0].each do |name| %>
-    <tr>
-      <td><%= name %></td>
-      <td><%= @round.comments(name) %></td>
-    </tr>
-  <% end %>
-</table>
+<div>
+  <%= @round.account_slice(5).comments.first.try(:text) %>
+</div>
