@@ -5,10 +5,13 @@
 <h3><%= @round.accounts.first.website.capitalize %></h3>
 
 <div>
-  <h5>username:</h5>
-  <%= @round.account_slice(5).username %>
+  <div>Username:</div>
+  <strong><%= @round.account_slice(5).username %></strong>
 </div>
 
-<div>
-  <%= @round.account_slice(5).comments.first.try(:text) %>
-</div>
+<% if @round.account_slice(5).comments.any? %>
+  <div>
+    <div>Suggested comment:</div>
+    <strong><%= @round.account_slice(5).comments.first.try(:text) %></strong>
+  </div>
+<% end %>

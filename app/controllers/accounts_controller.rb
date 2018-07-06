@@ -11,11 +11,15 @@ class AccountsController < ApplicationController
     @account = Account.new(account_params)
     @account.user = current_user
     @account.round = Round.last
-
-    if @account.save
-      redirect_to new_account_comment_url(@account)
+    unless @account.round.include_user?(current_user.id)
+      if @account.save
+        redirect_to new_account_comment_url(@account)
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to account_url(@account.round.find_user_account(current_user.id)),
+      alert: 'You already have a round entry'
     end
   end
 
