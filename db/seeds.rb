@@ -18,3 +18,5 @@ Round.create!
                   account_id: count)
 
 end
+
+puts "Round with 20 Users/Accounts/Comments seeded."
