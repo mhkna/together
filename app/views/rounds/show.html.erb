@@ -9,6 +9,8 @@
   <strong><%= @round.account_slice(@round.entry_number(current_user.id)).username %></strong>
 </div>
 
+<br />
+
 <% if @round.account_slice(@round.entry_number(current_user.id)).comments.any? %>
   <div>
     <div>Suggested comment:</div>
