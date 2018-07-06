@@ -11,7 +11,7 @@ class Round < ApplicationRecord
       break if account.user_id == user_id
       count += 1
     end
-    return count
+    return count-5
   end
 
   def include_user?(user_id)

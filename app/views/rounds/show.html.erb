@@ -6,12 +6,12 @@
 
 <div>
   <div>Username:</div>
-  <strong><%= @round.account_slice(5).username %></strong>
+  <strong><%= @round.account_slice(@round.entry_number(current_user.id)).username %></strong>
 </div>
 
-<% if @round.account_slice(5).comments.any? %>
+<% if @round.account_slice(@round.entry_number(current_user.id)).comments.any? %>
   <div>
     <div>Suggested comment:</div>
-    <strong><%= @round.account_slice(5).comments.first.try(:text) %></strong>
+    <strong><%= @round.account_slice(@round.entry_number(current_user.id)).comments.first.try(:text) %></strong>
   </div>
 <% end %>
