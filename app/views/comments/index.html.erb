@@ -5,4 +5,9 @@
 <% @comments.each do |comment| %>
   <%= comment.text %>
   <%= link_to 'Edit', edit_account_comment_path(@account, comment) %>
+  <%= link_to 'Delete', account_comment_path(@account, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+<% if @comments.count == 0 %>
+  <%= link_to 'Add', new_account_comment_path %>
 <% end %>
