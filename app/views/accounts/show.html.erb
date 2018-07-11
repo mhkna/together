@@ -1,22 +1,19 @@
 <p>
-  Your <%= @account.website %> username:
+  Your <%= @account.website %> username
 </p>
 <h3><%= @account.username %></h3>
-
 <%= link_to 'Edit', edit_account_path %> |
 <%= link_to 'Leave', account_path, method: :delete, data: { confirm: 'Are you sure you wish to leave this round?' } %>
+<br /><br />
+<div>
+  <%= link_to 'Suggested Comments', account_comments_path(@account) %>
+</div>
 
 <p>
   Round begins in
 </p>
 
 <div id="counter-container"></div>
-
-<div>
-  <%= link_to 'Edit Suggested Comments', account_comments_path(@account) %>
-</div>
-
 <%= link_to 'Play Round TEMP', round_path(@account.round) %>
-
 
 <%= javascript_pack_tag 'hello_react' %>

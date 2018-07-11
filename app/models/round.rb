@@ -6,12 +6,13 @@ class Round < ApplicationRecord
   end
 
   def entry_number(user_id)
+    offset = 5
     count = 0
     accounts.each do |account|
       break if account.user_id == user_id
       count += 1
     end
-    return count-5
+    return count - offset
   end
 
   def include_user?(user_id)
