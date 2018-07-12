@@ -16,18 +16,20 @@ class NameForm extends React.Component {
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
+    const data = new FormData(event.target);
+
+    fetch('/accounts', {
+      method: 'POST',
+      body: data,
+    });
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
+        <input type="text" value={this.state.value} onChange={this.handleChange} placeholder={this.props.placeholder} />
+        <input type="submit" value="Next" />
       </form>
     );
   }
@@ -35,6 +37,6 @@ class NameForm extends React.Component {
 
 
 ReactDOM.render(
-  <NameForm />,
+  <NameForm placeholder="Username" />,
   document.getElementById('form')
 );
