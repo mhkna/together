@@ -5,15 +5,15 @@
 <h3><%= @round.accounts.first.website.capitalize %></h3>
 
 <div>
-  <div>Username:</div>
-  <strong><%= @round.account_slice(@round.entry_number(current_user.id)).username %></strong>
+  <%= current_user.accounts.last.match_amount %>
+  <% @round.account_slice(current_user.id, current_user.accounts.last.match_amount).each do |account| %>
+    <div>Username:</div>
+    <strong><%= account.username %></strong>
+    <% if account.comments.any? %>
+      <div>Comment:</div>
+      <strong><%= account.comments.first.try(:text) %></strong>
+    <% end %>
+  <% end %>
 </div>
 
 <br />
-
-<% if @round.account_slice(@round.entry_number(current_user.id)).comments.any? %>
-  <div>
-    <div>Suggested comment:</div>
-    <strong><%= @round.account_slice(@round.entry_number(current_user.id)).comments.first.try(:text) %></strong>
-  </div>
-<% end %>

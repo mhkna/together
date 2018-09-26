@@ -10,12 +10,16 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= f.select :website, ['Instagram'] %>
-  </div>
+  </div> -->
 
   <div class="field">
     <%= f.text_field :username, autofocus: true, placeholder: 'Username' %>
+  </div>
+
+  <div class="field">
+    <%= f.select :match_amount, [ 1, 2, 3, 4, 5 ], prompt: 'select one' %>
   </div>
 
   <div class="actions">

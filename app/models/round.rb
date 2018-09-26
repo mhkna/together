@@ -1,18 +1,18 @@
 class Round < ApplicationRecord
   has_many :accounts
 
-  def account_slice(slice_number)
-    accounts[slice_number]
+  def account_slice(user_id, match_amount)
+    first_index = entry_number(user_id, match_amount)
+    accounts[first_index...(first_index + match_amount)]
   end
 
-  def entry_number(user_id)
-    offset = 5
+  def entry_number(user_id, match_amount)
     count = 0
     accounts.each do |account|
       break if account.user_id == user_id
       count += 1
     end
-    return count - offset
+    return count - match_amount
   end
 
   def include_user?(user_id)

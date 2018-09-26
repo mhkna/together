@@ -4,6 +4,7 @@ class AccountsController < ApplicationController
   end
 
   def new
+    # if user has account entered redirect to round show
     @account = Account.new
   end
 
@@ -50,6 +51,6 @@ class AccountsController < ApplicationController
   private
 
     def account_params
-      params.require(:account).permit(:website, :username)
+      params.require(:account).permit(:username, :match_amount)
     end
 end
