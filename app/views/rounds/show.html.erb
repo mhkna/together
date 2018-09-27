@@ -2,7 +2,7 @@
   Like and comment on the latest post by the user below.
 </p>
 
-<h3><%= @round.accounts.first.website.capitalize %></h3>
+<h3><%= @round.accounts.first.try(:website).try(:capitalize) %></h3>
 
 <div>
   <%= current_user.accounts.last.match_amount %>
