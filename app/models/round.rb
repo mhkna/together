@@ -1,5 +1,6 @@
 class Round < ApplicationRecord
   has_many :accounts
+  attr_accessor :matches
 
   # but do without changing DB
   def matched_accounts(current_user_id, match_amount)

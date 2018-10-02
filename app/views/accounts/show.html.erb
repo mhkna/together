@@ -1,21 +1,20 @@
-<p>
-  Your <%= @account.website %> username
-</p>
+<div>
+  Username <span><%= link_to 'Edit', edit_account_path %></span>
+</div>
 <h3><%= @account.username %></h3>
-<%= link_to 'Edit', edit_account_path %> |
-<%= link_to 'Leave', account_path, method: :delete, data: { confirm: 'Are you sure you wish to leave this round?' } %>
 <br /><br />
 
-<p>
-  Your comments
-</p>
+<div>
+  Comments
+</div>
 <% if @account.comments %>
   <% @account.comments.each do |comment| %>
-    <small><%= comment.text %></small><%= link_to 'Edit', edit_account_comment_path(@account, comment) %>
+    <small><%= comment.text %></small><%= link_to 'Edit', edit_account_comment_path(@account, comment) %><br />
   <% end %>
 <% end %>
 
 
 <br /><br />
-<%= link_to 'Enter Round (Temp)', round_path(@account.round) %>
+<%= link_to 'Leave Round', account_path, method: :delete, data: { confirm: 'Are you sure you wish to leave this round?' } %><br />
+<%= link_to 'Enter Round (Temp)', round_path(@account.round) %><br />
 <%= params.inspect %>

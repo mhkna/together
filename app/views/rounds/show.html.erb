@@ -1,17 +1,25 @@
-<p>
-  Like and comment on the latest post by the user below.
-</p>
+<div class="main-content">
 
-<h3><%= @round.accounts.first.try(:website).try(:capitalize) %></h3>
+  <p>
+    Like and comment on the latest post by the users below.
+  </p>
 
-<div>
-  <%= current_user.accounts.last.match_amount %>
-  <% @round.matched_accounts(current_user.id, current_user.accounts.last.match_amount).each do |account| %>
-    <div>Username:</div>
-    <strong><%= account.username %></strong>
-    <% if account.comments.first %>
-      <div>Comment:</div>
-      <strong><%= account.comments.first.try(:text) %></strong>
+  <h3><%= @round.accounts.first.try(:website).try(:capitalize) %></h3>
+
+  <div>
+    <%= pluralize(@round.matches.count, "match") %><br /><br />
+  </div>
+
+
+  <div class="total-row">
+    <% @round.matches.each do |account| %>
+      <div class="box-left">
+        <strong><%= account.username %></strong>
+      </div>
+      <div class="box-right">
+        <%= account.comments.first.try(:text) if account.comments.first %>
+      </div>
     <% end %>
-  <% end %>
+  </div>
+
 </div>

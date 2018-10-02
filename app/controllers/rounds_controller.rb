@@ -7,5 +7,6 @@ class RoundsController < ApplicationController
 
   def show
     @round = Round.find(params[:id])
+    @round.matches = @round.matched_accounts(current_user.id, current_user.accounts.last.match_amount)
   end
 end
