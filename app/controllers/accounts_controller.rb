@@ -4,7 +4,6 @@ class AccountsController < ApplicationController
   end
 
   def new
-    # if user has account entered redirect to round show
     @account = Account.new
   end
 

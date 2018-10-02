@@ -6,14 +6,12 @@
 
 <div>
   <%= current_user.accounts.last.match_amount %>
-  <% @round.account_slice(current_user.id, current_user.accounts.last.match_amount).each do |account| %>
+  <% @round.matched_accounts(current_user.id, current_user.accounts.last.match_amount).each do |account| %>
     <div>Username:</div>
     <strong><%= account.username %></strong>
-    <% if account.comments.any? %>
+    <% if account.comments.first %>
       <div>Comment:</div>
       <strong><%= account.comments.first.try(:text) %></strong>
     <% end %>
   <% end %>
 </div>
-
-<br />

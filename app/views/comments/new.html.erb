@@ -2,6 +2,7 @@
 
 <p>Step 2 of 2 (optional)</p>
 
-<h3>Suggest comment</h3>
+<h3 class="page-heading">Suggest <%= 'Comment'.pluralize(@account.match_amount) %></h3>
 
 <%= render 'comments/form' %>
+<%= params.inspect %>

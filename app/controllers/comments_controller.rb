@@ -6,12 +6,23 @@ class CommentsController < ApplicationController
 
   def new
     @account = Account.find(params[:account_id])
-    @comment = @account.comments.new
+    # @comment = @account.comments.new
+
+    @comment_group = []
+    (@account.match_amount).times do
+      @comment_group << @account.comments.new
+    end
   end
 
   def create
     @account = Account.find(params[:account_id])
-    @comment = @account.comments.create(comment_params)
+
+    comment_params[:comment_group].each do |comment_hash|
+      if comment_hash[:text] != ""
+        @account.comments.create(comment_hash)
+      end
+    end
+    
     redirect_to account_url(@account)
   end
 
@@ -41,6 +52,6 @@ class CommentsController < ApplicationController
   private
 
     def comment_params
-      params.require(:comment).permit(:text)
+      params.permit(comment_group: [:text])
     end
 end
