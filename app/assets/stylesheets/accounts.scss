@@ -5,3 +5,38 @@
 .field {
   margin: 0 0 15px 0;
 }
+
+.heading {
+  font-style: italic;
+}
+
+.comment-text {
+  font-size: 150%;
+  margin: 10px 0;
+}
+
+#username {
+  font-size: 300%;
+  margin: 5px 0 10px;
+}
+
+span {
+  font-size: 10px;
+  font-style: normal;
+  margin-left: 3px;
+  vertical-align: middle;
+}
+
+#leave-round {
+  margin: 20px 0 0;
+}
+
+.fa-check {
+  color: green;
+  font-size: 150%;
+}
+
+.fa-times {
+  color: red;
+  font-size: 150%;
+}

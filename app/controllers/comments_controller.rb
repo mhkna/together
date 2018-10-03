@@ -6,8 +6,7 @@ class CommentsController < ApplicationController
 
   def new
     @account = Account.find(params[:account_id])
-    # @comment = @account.comments.new
-
+    
     @comment_group = []
     (@account.match_amount).times do
       @comment_group << @account.comments.new
@@ -22,7 +21,7 @@ class CommentsController < ApplicationController
         @account.comments.create(comment_hash)
       end
     end
-    
+
     redirect_to account_url(@account)
   end
 

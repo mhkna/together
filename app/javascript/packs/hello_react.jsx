@@ -44,7 +44,7 @@ class Clock extends React.Component {
   render() {
     return (
       <div>
-        <h3>{this.zeroPad(this.state.minutes)}:{this.zeroPad(this.state.seconds)}</h3>
+        <div id="timer">{this.zeroPad(this.state.minutes)}:{this.zeroPad(this.state.seconds)}</div>
       </div>
     );
   }

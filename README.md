@@ -22,3 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+round.new at 7 after
+round show or wait room between 0 and 7
+no round show or wait between 53 and 0
