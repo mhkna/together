@@ -9,9 +9,9 @@ class RoundsController < ApplicationController
 
   def show
     in_round = in_round?(current_user)
-    time_in = Time.now.strftime('%M').to_i < 7
+    time_in = Time.now.strftime('%M').to_i < 59
     if time_in && in_round
-      @round = Round.find(params[:id])
+      @round = Round.last
       @round.matches = @round.matched_accounts(current_user.id, current_user.accounts.last.match_amount)
     elsif time_in
       # Wait for new round

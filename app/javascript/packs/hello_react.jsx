@@ -10,9 +10,17 @@ class Clock extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      minutes: 59 - new Date().getMinutes(),
+      minutes: this.setMin(),
       seconds: 59 - new Date().getSeconds()
     };
+  }
+
+  setMin() {
+    let min = 59 - new Date().getMinutes()
+    if (min >= 53) {
+      min = min - 53
+    }
+    return min
   }
 
   componentDidMount() {
@@ -36,14 +44,23 @@ class Clock extends React.Component {
   tick() {
     const date = new Date ()
     this.setState({
-      minutes: 59 - date.getMinutes(),
+      minutes: this.setMin(),
       seconds: 59 - date.getSeconds()
     });
+  }
+
+  setText() {
+    if ((59 - new Date().getMinutes()) >= 53) {
+      return "*IN PROGRESS*"
+    } else {
+      return "round begins"
+    }
   }
 
   render() {
     return (
       <div>
+        <div>{this.setText()}</div>
         <div id="timer">{this.zeroPad(this.state.minutes)}:{this.zeroPad(this.state.seconds)}</div>
       </div>
     );

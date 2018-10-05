@@ -12,6 +12,23 @@
 //
 //= require bootstrap
 //= require rails-ujs
+//= require jquery
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+  
+
+
+
+
+
+  $('#timer').click(function(){
+    if( $("#timer").text() <= "59:00" ){
+      document.location.href = "/rounds/show"
+    }
+  });
+
+
+})

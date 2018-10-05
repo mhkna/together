@@ -2,14 +2,13 @@
   <% @comment_group.each_with_index do |comment, i| %>
     <%= fields_for 'comment_group[]', comment do |p| %>
       <div class="field">
-        <%= i + 1 %>. 
+        <%= i + 1 %>.
         <%= p.text_field :text, autofocus: true %>
       </div>
 
     <% end %>
   <% end %>
-  <%= link_to 'Restart', '#', class: 'back-link-button' %>
-  <button name="back" type="button">Exit</button>
+  <%= link_to 'Restart', new_account_path, class: 'back-link-button' %>
   <div class="actions on-side">
     <%= submit_tag "Join Round" %>
   </div>
