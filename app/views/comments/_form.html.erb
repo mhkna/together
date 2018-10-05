@@ -1,24 +1,16 @@
-<!-- <%= form_with(model: [ @account, @account.comments.build ], local: true) do |form| %>
-  <div>
-    <%= form.text_field :text, autofocus: true, placeholder: 'Comment' %>
-  </div>
-
-  <div>
-    <%= form.submit "Join Round" %>
-  </div>
-<% end %> -->
-
 <%= form_tag account_comments_path do %>
-  <% @comment_group.each do |comment| %>
+  <% @comment_group.each_with_index do |comment, i| %>
     <%= fields_for 'comment_group[]', comment do |p| %>
-
       <div class="field">
+        <%= i + 1 %>. 
         <%= p.text_field :text, autofocus: true %>
       </div>
 
     <% end %>
   <% end %>
-  <div class="actions">
+  <%= link_to 'Restart', '#', class: 'back-link-button' %>
+  <button name="back" type="button">Exit</button>
+  <div class="actions on-side">
     <%= submit_tag "Join Round" %>
   </div>
 <% end %>

@@ -1,8 +1,11 @@
 <% provide(:title, "Account") %>
 
-<p>Step 2 of 2 (optional)</p>
+<div class="main-container comment-container">
+  <div class="box-heading">
+    <p>Step 2 of 2 (optional)</p>
+  </div>
 
-<h3 class="page-heading">Suggest <%= 'Comment'.pluralize(@account.match_amount) %></h3>
+    <h3 class="page-heading">Suggest <%= 'Comment'.pluralize(@account.match_amount) %></h3>
 
-<%= render 'comments/form' %>
-<%= params.inspect %>
+    <%= render 'comments/form' %>
+</div>

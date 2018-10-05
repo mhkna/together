@@ -1,10 +1,14 @@
 <% provide(:title, "Account") %>
 
-<p>Step 1 of 2</p>
+<div class="main-container">
+  <div class="box-heading">
+    <p>Step 1 of 2</p>
+  </div>
 
-<h3 class="page-heading">Enter Information</h3>
+  <h3 class="page-heading">Enter Information</h3>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 
-<div id="form"></div>
-<%= javascript_pack_tag 'form' %>
+  <div id="form"></div>
+  <%= javascript_pack_tag 'form' %>
+</div>

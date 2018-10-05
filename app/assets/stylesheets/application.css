@@ -26,11 +26,19 @@
  position: absolute;
  top: 20px;
  left: 20px;
- border: 1px solid gray;
+ border: 1px dotted gray;
  border-radius: 4px;
  padding: 10px;
 }
 
 .page-heading {
-  margin: 0 0 15px 0;
+  margin: 20px 0;
+}
+
+input[type=submit] {
+  background-color: rgb(69, 194, 183);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 5px 15px;
 }

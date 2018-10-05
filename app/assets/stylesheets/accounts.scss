@@ -27,8 +27,24 @@ span {
   vertical-align: middle;
 }
 
-#leave-round {
+#leave-round, #leave-round:hover{
   margin: 20px 0 0;
+  text-decoration: none;
+  border: 1px solid rgb(69, 194, 183);
+  border-radius: 10px;
+  color: rgb(69, 194, 183);
+  margin-right: 5px;
+  padding: 5px 15px;
+}
+
+.enter-round, .enter-round:hover {
+  text-decoration: none;
+  background-color: rgb(69, 194, 183);
+  border: 1px solid rgb(69, 194, 183);
+  border-radius: 10px;
+  color: white;
+  margin-right: 5px;
+  padding: 5px 15px;
 }
 
 .fa-check {
@@ -39,4 +55,16 @@ span {
 .fa-times {
   color: red;
   font-size: 150%;
+}
+
+.main-container {
+  border: 1px dotted gray;
+  border-radius: 10px;
+  margin: 0 auto;
+  padding: 20px 0;
+  width: 300px;
+}
+
+.box-heading {
+  border-bottom: 1px dotted gray;
 }

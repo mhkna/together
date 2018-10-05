@@ -1,3 +1,33 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.on-side {
+  display: inline-block;
+}
+
+button[name="back"] {
+  background-color: #EEEEEE;
+  border: 1px solid rgb(69, 194, 183);
+  border-radius: 10px;
+  color: rgb(69, 194, 183);
+  margin-right: 5px;
+  padding: 5px 15px;
+}
+
+.back-link-button, .back-link-button:hover {
+  text-decoration: none;
+  border: 1px solid rgb(69, 194, 183);
+  border-radius: 10px;
+  color: rgb(69, 194, 183);
+  margin-right: 5px;
+  padding: 5px 15px;
+}
+
+#comment_group__text {
+  width: 260px;
+}
+
+.comment-container {
+  width: 400px;
+}
