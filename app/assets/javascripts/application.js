@@ -18,17 +18,13 @@
 //= require_tree .
 
 $(document).ready(function() {
-  
-
-
-
-
-
-  $('#timer').click(function(){
-    if( $("#timer").text() <= "59:00" ){
-      document.location.href = "/rounds/show"
+  $('#timer').on('DOMSubtreeModified', function() {
+    const myTime = $('#timer').text()
+    if (myTime === "00:01" && $('#round-status').text() === "round begins") {
+      document.location.href = "/rounds/show";
     }
-  });
-
-
+    else if (myTime == "00:01" && $('#round-status').text() === "*IN PROGRESS*") {
+      document.location.href = "/accounts/new";
+    }
+  })
 })

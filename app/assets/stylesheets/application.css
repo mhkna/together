@@ -22,13 +22,27 @@
   color:red;
 }
 
+#counter {
+  position: absolute;
+  top: 25%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+}
+
+#counter > div {
+  /* width: 60%;
+  margin: 0 auto;
+  text-align: right; */
+}
+
 #counter-container {
  position: absolute;
- top: 20px;
- left: 20px;
- border: 1px dotted gray;
- border-radius: 4px;
+ top: 0px;
+ left: 0px;
+ border-right: 1px dotted gray;
+ height: 100%;
  padding: 10px;
+ width: 150px;
 }
 
 .page-heading {

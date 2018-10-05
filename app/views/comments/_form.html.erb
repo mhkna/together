@@ -8,7 +8,7 @@
 
     <% end %>
   <% end %>
-  <%= link_to 'Restart', new_account_path, class: 'back-link-button' %>
+  <%= link_to 'Restart', account_path(@account), method: :delete, id: "leave-round"%>
   <div class="actions on-side">
     <%= submit_tag "Join Round" %>
   </div>

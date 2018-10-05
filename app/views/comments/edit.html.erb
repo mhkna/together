@@ -1,9 +1,27 @@
-<%= form_with(model: @comment, url: account_comment_path, local: true) do |form| %>
+<!-- <%= form_with(model: @comment, url: account_comment_path, local: true) do |form| %>
   <div>
     <%= form.text_field :text, autofocus: true, placeholder: 'Comment' %>
   </div>
 
   <div>
     <%= form.submit "Save" %>
+  </div>
+<% end %> -->
+
+<%= form_tag account_comments_path do %>
+  <% @comment_group.each_with_index do |comment, i| %>
+    <%= fields_for 'comment_group[]', comment do |p| %>
+      <div class="field">
+        <%= i + 1 %>.
+        <%= p.text_field :text, autofocus: true %>
+      </div>
+
+    <% end %>
+  <% end %>
+
+  <%= link_to 'Back', account_path(@account), id: "leave-round"%>
+
+  <div class="actions on-side">
+    <%= submit_tag "Update" %>
   </div>
 <% end %>

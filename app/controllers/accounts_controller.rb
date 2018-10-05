@@ -25,6 +25,9 @@ class AccountsController < ApplicationController
 
   def show
     @account = Account.find(params[:id])
+    if Round.last != @account.round
+      redirect_to new_account_path
+    end
   end
 
   def edit

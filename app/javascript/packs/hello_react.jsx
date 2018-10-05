@@ -60,7 +60,7 @@ class Clock extends React.Component {
   render() {
     return (
       <div>
-        <div>{this.setText()}</div>
+        <div id="round-status">{this.setText()}</div>
         <div id="timer">{this.zeroPad(this.state.minutes)}:{this.zeroPad(this.state.seconds)}</div>
       </div>
     );

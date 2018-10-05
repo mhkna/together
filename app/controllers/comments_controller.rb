@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
 
   def new
     @account = Account.find(params[:account_id])
-    
+
     @comment_group = []
     (@account.match_amount).times do
       @comment_group << @account.comments.new
@@ -27,7 +27,10 @@ class CommentsController < ApplicationController
 
   def edit
     @account = Account.find(params[:account_id])
-    @comment = @account.comments.find(params[:id])
+    # @comment = @account.comments.find(params[:id])
+    @comment_group = []
+    @account.comments.each { |comment| @comment_group << comment }
+    p @comment_group
   end
 
   def update

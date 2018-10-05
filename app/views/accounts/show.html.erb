@@ -1,3 +1,7 @@
+<div id="wait-text">
+  You're in. Wait here.
+</div>
+
 <div class="heading">
   Username <span><%= link_to 'Edit', edit_account_path %></span>
 </div>
@@ -8,7 +12,7 @@
   <div class="heading">
     Comments
     <span>
-      <%= link_to 'Edit', '#' %>
+      <%= link_to 'Edit', edit_account_comment_path(@account, @account.comments) %>
     </span>
   </div>
   <% @account.comments.each_with_index do |comment, i| %>
@@ -21,7 +25,6 @@
 
 <%= link_to 'Leave Round', account_path, method: :delete, data: { confirm: 'Are you sure you wish to leave this round?' }, id: "leave-round"%>
 
-<br />
-<br />
-<br />
+<!--
 <%= link_to 'Enter Round (Temp)', round_path(@account.round), class: "enter-round" %>
+-->

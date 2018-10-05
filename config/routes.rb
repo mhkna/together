@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root    'accounts#new'
+  get     '/wait',     to: 'static_pages#wait_room'
   get     '/home',     to: 'static_pages#home'
   get     '/contact',  to: 'static_pages#contact'
   get     '/signup',   to: 'users#new'
