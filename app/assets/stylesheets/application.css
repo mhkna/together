@@ -24,7 +24,7 @@
 
 #counter {
   position: absolute;
-  top: 25%; left: 50%;
+  top: 70px; left: 50%;
   transform: translate(-50%,-50%);
   width: 100%;
 }
@@ -55,4 +55,17 @@ input[type=submit] {
   border-radius: 10px;
   color: white;
   padding: 5px 15px;
+}
+
+#error_explanation li {
+  list-style-type: none;
+  color: red;
+}
+
+#error_explanation ul {
+  padding: 0;
+}
+
+.main-content {
+  /* margin-left: 150px; */
 }

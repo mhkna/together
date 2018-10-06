@@ -7,16 +7,23 @@ Round.create!
                email:                 Faker::Internet.unique.email,
                password:              "foobar",
                password_confirmation: "foobar",
-               admin:                 true)
+               admin:                 false)
 
-  Account.create!(website: "instagram",
-                  username: Faker::Internet.unique.user_name,
-                  round_id: 1,
-                  user_id: count)
+  Account.create!(username: Faker::Internet.unique.user_name,
+                  round_id: Round.last.id,
+                  user_id: User.last.id,
+                  match_amount: 1)
 
-  Comment.create!(text: Faker::MichaelScott.quote,
-                  account_id: count)
+  unless count % 7 == 0
+    Comment.create!(text: Faker::TheITCrowd.quote,
+                    account_id: Account.last.id)
+  end
+
+  if count % 2 == 0
+    Comment.create!(text: Faker::StrangerThings.quote,
+                    account_id: Account.last.id)
+  end
 
 end
 
-puts "Round with 20 Users/Accounts/Comments seeded."
+puts "Round with 20 Users/Accounts seeded."

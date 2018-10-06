@@ -2,16 +2,20 @@
 
 <table>
   <tr>
+    <th>Account(#)</th>
     <th>Website</th>
     <th>Username</th>
-    <th colspan="2"></th>
+    <th>Round(#)</th>
+    <th colspan="2">Links</th>
   </tr>
 
   <% @accounts.each do |account| %>
     <tr>
+      <td><%= account.id %></td>
       <td><%= account.website %></td>
       <td><%= account.username %></td>
-      <% if account.user == current_user %>
+      <td><%= account.round.id %></td>
+      <% if account.user == current_user || current_user.admin? %>
         <td><%= link_to 'Edit', edit_account_path(account) %></td>
         <td><%= link_to 'Destroy', account_path(account),
                 method: :delete,

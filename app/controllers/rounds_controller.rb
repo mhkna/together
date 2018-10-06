@@ -1,5 +1,4 @@
 class RoundsController < ApplicationController
-  include RoundsHelper
 
   def create
     @round = Round.new
@@ -8,16 +7,16 @@ class RoundsController < ApplicationController
   end
 
   def show
-    in_round = in_round?(current_user)
-    time_in = (Time.now.strftime('%M').to_i < 7) || (Time.now.strftime('%M%S').to_i == 5959)
-    if time_in && in_round
+    in_round = user_in_round
+    time_in = (Time.now.strftime('%M').to_i < 55) || (Time.now.strftime('%M%S').to_i >= 5958)
+    if in_round && time_in
       @round = Round.last
       @round.matches = @round.matched_accounts(current_user.id, current_user.accounts.last.match_amount)
-    elsif time_in
-      redirect_to wait_url
-    elsif in_round == false
+    elsif !in_round && time_in
+      redirect_to wait_path
+    elsif !in_round && !time_in
       redirect_to :controller => 'accounts', :action => 'new'
-    else
+    elsif in_round && !time_in
       redirect_to :controller => 'accounts', :action => 'show', id: current_user.accounts.last.id
     end
   end

@@ -8,6 +8,10 @@
 
 <div id="username"><%= @account.username %></div>
 
+<% if @account.comments.count == 0 %>
+  <%= link_to 'Add Comments', new_account_comment_path(@account, @account.comments) %>
+<% end %>
+
 <% if @account.comments.count > 0 %>
   <div class="heading">
     Comments
@@ -16,15 +20,17 @@
     </span>
   </div>
   <% @account.comments.each_with_index do |comment, i| %>
+  <span><%= i + 1 %>.</span>
     <div class="comment-text">
-      <span><%= i + 1 %>.</span> <%= comment.text %><span><%= link_to 'Edit', edit_account_comment_path(@account, comment) %></span>
+      <%= comment.text %>
     </div>
   <% end %>
 <% end %>
 
+<div class="leave-link">
+  <%= link_to 'Leave Round', account_path, method: :delete, data: { confirm: 'Are you sure you wish to leave this round?' }, id: "leave-round"%>
+</div>
 
-<%= link_to 'Leave Round', account_path, method: :delete, data: { confirm: 'Are you sure you wish to leave this round?' }, id: "leave-round"%>
 
 <!--
-<%= link_to 'Enter Round (Temp)', round_path(@account.round), class: "enter-round" %>
--->
+<%= link_to 'Enter Round (Temp)', round_path(@account.round), class: "enter-round" %> -->

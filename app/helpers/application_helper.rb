@@ -9,12 +9,13 @@ module ApplicationHelper
     end
   end
 
-  def check_or_x
-    if current_user.accounts.last.round == Round.last
-      '<i class="fas fa-check"></i>'
-    else
-      '<i class="fas fa-times"></i>'
-    end
+  def user_in_round
+    return false if current_user == nil
+    most_recent_account = current_user.accounts.last
+    Round.last.accounts.include?(most_recent_account)
   end
 
+  def in_progress?
+    Time.now.strftime('%M').to_i < 7
+  end
 end

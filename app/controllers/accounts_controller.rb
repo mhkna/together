@@ -1,4 +1,7 @@
 class AccountsController < ApplicationController
+  before_action :round_in_progress
+  before_action :admin_user,           only: [:index]
+
   def index
     @accounts = Account.all
   end
@@ -54,5 +57,18 @@ class AccountsController < ApplicationController
 
     def account_params
       params.require(:account).permit(:username, :match_amount)
+    end
+
+    # Before filter
+    def round_in_progress
+      if in_progress? && user_in_round
+        redirect_to round_path(Round.last)
+      elsif in_progress?
+        redirect_to wait_path
+      end
+    end
+
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
     end
 end

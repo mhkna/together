@@ -23,7 +23,7 @@ $(document).ready(function() {
     if (myTime === "00:01" && $('#round-status').text() === "round begins") {
       document.location.href = "/rounds/show";
     }
-    else if (myTime == "00:01" && $('#round-status').text() === "*IN PROGRESS*") {
+    else if (myTime === "00:01" && $('#round-status').text() === "*IN PROGRESS*") {
       document.location.href = "/accounts/new";
     }
   })

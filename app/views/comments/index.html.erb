@@ -1,13 +1,13 @@
-<div>
-  <%= link_to 'Back', account_path(@account) %>
+<div class="comments-index-contain">
+  <div>
+    <%= link_to 'Back', account_path(@account) %>
+  </div>
+
+  <% @comments.each do |comment| %>
+    <div style="margin-bottom:5px;">
+      <%= comment.text %>
+      <%= link_to 'Edit', edit_account_comment_path(@account, comment) %>
+      <%= link_to 'Delete', account_comment_path(@account, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+  <% end %>
 </div>
-
-<% @comments.each do |comment| %>
-  <%= comment.text %>
-  <%= link_to 'Edit', edit_account_comment_path(@account, comment) %>
-  <%= link_to 'Delete', account_comment_path(@account, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
-
-<% if @comments.count == 0 %>
-  <%= link_to 'Add', new_account_comment_path %>
-<% end %>

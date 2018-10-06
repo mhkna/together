@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :user_or_admin, only: [:index]
+
   def index
     @account = Account.find(params[:account_id])
     @comments = @account.comments
@@ -55,5 +57,9 @@ class CommentsController < ApplicationController
 
     def comment_params
       params.permit(comment_group: [:text])
+    end
+
+    def user_or_admin
+      Account.find(params[:account_id]).user == current_user || current_user.admin?
     end
 end

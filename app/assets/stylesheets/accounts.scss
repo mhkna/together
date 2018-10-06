@@ -23,8 +23,11 @@
 span {
   font-size: 10px;
   font-style: normal;
-  margin-left: 3px;
   vertical-align: middle;
+}
+
+.leave-link {
+  margin: 30px 0 0;
 }
 
 #leave-round, #leave-round:hover{
@@ -33,7 +36,6 @@ span {
   border: 1px solid rgb(69, 194, 183);
   border-radius: 10px;
   color: rgb(69, 194, 183);
-  margin-right: 5px;
   padding: 5px 15px;
 }
 
@@ -72,4 +74,8 @@ span {
 #wait-text {
   color: rgb(69, 194, 183);
   margin-bottom: 20px;
+}
+
+table {
+  margin: 0 auto;
 }
