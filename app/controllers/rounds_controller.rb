@@ -1,4 +1,5 @@
 class RoundsController < ApplicationController
+  before_action :require_login
 
   def create
     @round = Round.new
@@ -20,4 +21,10 @@ class RoundsController < ApplicationController
       redirect_to :controller => 'accounts', :action => 'show', id: current_user.accounts.last.id
     end
   end
+
+  private
+  
+    def require_login
+      redirect_to login_url unless current_user
+    end
 end

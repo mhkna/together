@@ -20,10 +20,10 @@
 $(document).ready(function() {
   $('#timer').on('DOMSubtreeModified', function() {
     const myTime = $('#timer').text()
-    if (myTime === "00:01" && $('#round-status').text() === "round begins") {
+    const status = $('#round-status').text()
+    if (myTime === "00:01" && status === "round begins") {
       document.location.href = "/rounds/show";
-    }
-    else if (myTime === "00:01" && $('#round-status').text() === "*IN PROGRESS*") {
+    } else if (myTime === "00:01" && status === "*IN PROGRESS*") {
       document.location.href = "/accounts/new";
     }
   })
