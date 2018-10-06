@@ -1,6 +1,7 @@
 class AccountsController < ApplicationController
   before_action :require_login
-  before_action :admin_user,           only: [:index]
+  before_action :admin_user,     only: [:index]
+  # before_action :authorized?,    only: [:show, :edit, :update, :delete]
   # before_action :round_in_progress
 
   def index
@@ -29,17 +30,20 @@ class AccountsController < ApplicationController
 
   def show
     @account = Account.find(params[:id])
+    authorized?
     if Round.last != @account.round
-      redirect_to new_account_path
+      redirect_to new_account_path and return
     end
   end
 
   def edit
     @account = Account.find(params[:id])
+    authorized?
   end
 
   def update
     @account = Account.find(params[:id])
+    authorized?
     if @account.update(params[:account].permit(:username))
       redirect_to account_url
     else
@@ -49,6 +53,7 @@ class AccountsController < ApplicationController
 
   def destroy
     @account = Account.find(params[:id])
+    authorized?
     @account.destroy
 
     redirect_to root_path, alert: 'You have been romoved from the round'
@@ -75,5 +80,11 @@ class AccountsController < ApplicationController
 
     def require_login
       redirect_to login_url unless current_user
+    end
+
+    def authorized?
+      unless @account.user == current_user
+        redirect_to contact_path and return
+      end
     end
 end
