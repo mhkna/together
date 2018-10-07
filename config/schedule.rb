@@ -17,6 +17,6 @@
 #   runner "AnotherModel.prune_old_records"
 # end
 
-every 1.day, at: ['6:07 pm', '7:07 pm', '8:07 pm', '9:07 pm'] do
+every 1.hour, at: ['12:07 am'] do
   runner "Round.create"
 end

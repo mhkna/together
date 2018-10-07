@@ -1,7 +1,5 @@
-class CommentsController < ApplicationController
-  before_action :require_login
-  #before_action :authenticate_user!,
-  before_action :user_or_admin, only: [:index]
+class CommentsController < SharedController
+  # before_action :user_or_admin, only: [:index]
 
   def index
     @account = Account.find(params[:account_id])
@@ -61,11 +59,9 @@ class CommentsController < ApplicationController
       params.permit(comment_group: [:text])
     end
 
-    def user_or_admin
-      Account.find(params[:account_id]).user == current_user || current_user.admin?
-    end
+    # before actions
 
-    def require_login
-      redirect_to login_url unless current_user
-    end
+    # def user_or_admin
+    #   Account.find(params[:account_id]).user == current_user || current_user.admin?
+    # end
 end

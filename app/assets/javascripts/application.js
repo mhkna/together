@@ -21,8 +21,9 @@ $(document).ready(function() {
   $('#timer').on('DOMSubtreeModified', function() {
     const myTime = $('#timer').text()
     const status = $('#round-status').text()
+    const roundId = $('#round-id').text().trim()
     if (myTime === "00:01" && status === "round begins") {
-      document.location.href = "/rounds/show";
+      document.location.href = "/rounds/" + roundId;
     } else if (myTime === "00:01" && status === "*IN PROGRESS*") {
       document.location.href = "/accounts/new";
     }

@@ -9,6 +9,8 @@ class Round < ApplicationRecord
     ordered = accounts.order(get_amount: :desc).where("user_id != :id", id: current_user_id)
     # select number current id gets
     selected = ordered.first(match_amount)
+
+    ## CANT DO THIS BECAUSE MUST BE SAME ON REFRESH...
     selected.each { |account| account.get_amount = account.get_amount - 1 }
     return selected
   end

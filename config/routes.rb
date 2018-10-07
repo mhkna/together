@@ -13,5 +13,5 @@ Rails.application.routes.draw do
     resources :comments, except: [:show]
   end
   resources :rounds, only: [:show]
-
+  get "*path", to: redirect('/')
 end

@@ -16,16 +16,17 @@
       <% end %>
 
       <div class="center jumbotron" style="position:relative;min-height:400px">
-
         <div id="counter-container">
           <div id="counter"></div>
         </div>
         <div class="main-content">
           <%= yield %>
         </div>
-
         <%= javascript_pack_tag 'hello_react' %>
+      </div>
 
+      <div id="round-id" style="display:none">
+        <%= current_round_id %>
       </div>
 
       <%= render 'layouts/footer' %>

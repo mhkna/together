@@ -1,8 +1,6 @@
-class AccountsController < ApplicationController
-  before_action :require_login
+class AccountsController < SharedController
   before_action :admin_user,     only: [:index]
-  # before_action :authorized?,    only: [:show, :edit, :update, :delete]
-  # before_action :round_in_progress
+  before_action :round_in_progress
 
   def index
     @accounts = Account.all
@@ -32,7 +30,7 @@ class AccountsController < ApplicationController
     @account = Account.find(params[:id])
     authorized?
     if Round.last != @account.round
-      redirect_to new_account_path and return
+      redirect_to new_account_path
     end
   end
 
@@ -65,11 +63,12 @@ class AccountsController < ApplicationController
       params.require(:account).permit(:username, :match_amount)
     end
 
-    # Before filters
+    # before actions
+
     def round_in_progress
-      if in_progress? && user_in_round
-        redirect_to round_path(Round.last)
-      elsif in_progress?
+      if round_in_progress? && user_in_round?
+        render 'rounds/show'
+      elsif round_in_progress?
         redirect_to wait_path
       end
     end
@@ -78,13 +77,9 @@ class AccountsController < ApplicationController
       redirect_to(root_url) unless current_user.admin?
     end
 
-    def require_login
-      redirect_to login_url unless current_user
-    end
-
     def authorized?
       unless @account.user == current_user
-        redirect_to contact_path and return
+        redirect_to contact_path
       end
     end
 end
