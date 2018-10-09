@@ -2,6 +2,15 @@ class Round < ApplicationRecord
   has_many :accounts
   attr_accessor :matches
 
+
+  def matchzzzzz
+    # next account first comment
+    # after next 2nd comment
+    # if last account. next is first account.
+    #break when match_amount ORRRRR own_account
+  end
+
+
   # but do without changing DB
   def matched_accounts(current_user_id, match_amount)
     matched = []

@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   get     '/signup',   to: 'users#new'
   post    '/signup',   to: 'users#create'
   get     '/wait',     to: 'static_pages#wait_room'
-  get     '/home',     to: 'static_pages#home'
   get     '/contact',  to: 'static_pages#contact'
   get     '/nah',      to: 'static_pages#no'
   resources :users, only: [:edit, :update, :destroy]
