@@ -1,5 +1,4 @@
 class RoundsController < ApplicationController
-  # before_action :require_login
 
   def create
     redirect_to nah_path unless current_user.admin?
@@ -11,14 +10,10 @@ class RoundsController < ApplicationController
     redirect_to login_path and return unless current_user
     check_progress
     @round = current_round
-    @round.matches = @round.matched_accounts(current_user.id, current_user.accounts.last.match_amount)
+    @round.matches = @round.matchezzz(current_account.id, current_user.accounts.last.match_amount)
   end
 
   private
-
-    # def require_login
-    #   redirect_to login_path and return unless current_user
-    # end
 
     def check_progress
       happening_now = round_in_progress?
@@ -31,4 +26,5 @@ class RoundsController < ApplicationController
         redirect_to wait_path
       end
     end
+    
 end

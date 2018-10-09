@@ -12,7 +12,7 @@ Round.create!
   Account.create!(username: Faker::Internet.unique.user_name,
                   round_id: Round.last.id,
                   user_id: User.last.id,
-                  match_amount: 1)
+                  match_amount: 5)
 
   unless count % 7 == 0
     Comment.create!(text: Faker::TheITCrowd.quote,

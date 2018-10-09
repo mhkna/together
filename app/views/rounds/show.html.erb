@@ -10,12 +10,16 @@
 
 
   <div class="total-row">
-    <% @round.matches.each do |account| %>
+    <% @round.matches.each_with_index do |account, i| %>
       <div class="box-left">
         <strong><%= account.username %></strong>
       </div>
       <div class="box-right">
-        <%= account.comments.first.try(:text) if account.comments.first %>
+        <% if account.comments[i] != nil %>
+          <%= account.comments[i].text %>
+        <% else %>
+          <%= "x" %>
+        <% end %>
       </div>
     <% end %>
   </div>
