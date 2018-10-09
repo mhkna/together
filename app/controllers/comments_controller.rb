@@ -2,12 +2,13 @@ class CommentsController < SharedController
 
   def index
     @account = Account.find(params[:account_id])
+    redirect_to nah_path and return unless authorized? || current_user.admin?
     @comments = @account.comments
   end
 
   def new
     @account = Account.find(params[:account_id])
-
+    redirect_to account_path(@account) and return if @account.comments.count > 0
     @comment_group = []
     (@account.match_amount).times do
       @comment_group << @account.comments.new
@@ -16,7 +17,7 @@ class CommentsController < SharedController
 
   def create
     @account = Account.find(params[:account_id])
-
+    redirect_to account_path(@account) and return if @account.comments.count > 0
     comment_params[:comment_group].each do |comment_hash|
       if comment_hash[:text] != ""
         @account.comments.create(comment_hash)
