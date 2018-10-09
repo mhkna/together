@@ -1,8 +1,6 @@
 class AccountsController < SharedController
-  before_action :admin_user,     only: [:index]
-  before_action :round_in_progress
-
   def index
+    redirect_to(root_url) unless current_user.admin?
     @accounts = Account.all
   end
 
@@ -28,7 +26,7 @@ class AccountsController < SharedController
 
   def show
     @account = Account.find(params[:id])
-    authorized?
+    redirect_to nah_path and return unless authorized? || current_user.admin?
     if Round.last != @account.round
       redirect_to new_account_path
     end
@@ -36,12 +34,12 @@ class AccountsController < SharedController
 
   def edit
     @account = Account.find(params[:id])
-    authorized?
+    redirect_to nah_path and return unless authorized? || current_user.admin?
   end
 
   def update
     @account = Account.find(params[:id])
-    authorized?
+    redirect_to nah_path and return unless authorized? || current_user.admin?
     if @account.update(params[:account].permit(:username))
       redirect_to account_url
     else
@@ -51,7 +49,7 @@ class AccountsController < SharedController
 
   def destroy
     @account = Account.find(params[:id])
-    authorized?
+    redirect_to nah_path and return unless authorized? || current_user.admin?
     @account.destroy
 
     redirect_to root_path, alert: 'You have been romoved from the round'
@@ -63,23 +61,4 @@ class AccountsController < SharedController
       params.require(:account).permit(:username, :match_amount)
     end
 
-    # before actions
-
-    def round_in_progress
-      if round_in_progress? && user_in_round?
-        render 'rounds/show'
-      elsif round_in_progress?
-        redirect_to wait_path
-      end
-    end
-
-    def admin_user
-      redirect_to(root_url) unless current_user.admin?
-    end
-
-    def authorized?
-      unless @account.user == current_user
-        redirect_to contact_path
-      end
-    end
 end

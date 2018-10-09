@@ -1,5 +1,4 @@
 class CommentsController < SharedController
-  # before_action :user_or_admin, only: [:index]
 
   def index
     @account = Account.find(params[:account_id])
@@ -29,6 +28,7 @@ class CommentsController < SharedController
 
   def edit
     @account = Account.find(params[:account_id])
+    redirect_to nah_path and return unless authorized? || current_user.admin?
     # @comment = @account.comments.find(params[:id])
     @comment_group = []
     @account.comments.each { |comment| @comment_group << comment }
@@ -37,6 +37,7 @@ class CommentsController < SharedController
 
   def update
     @account = Account.find(params[:account_id])
+    redirect_to nah_path and return unless authorized? || current_user.admin?
     @comment = @account.comments.find(params[:id])
 
     if @comment.update_attributes(comment_params)
@@ -48,6 +49,7 @@ class CommentsController < SharedController
 
   def destroy
     @account = Account.find(params[:account_id])
+    redirect_to nah_path and return unless authorized? || current_user.admin?
     @comment = @account.comments.find(params[:id])
     @comment.destroy
     redirect_to account_url(@account)
@@ -59,9 +61,4 @@ class CommentsController < SharedController
       params.permit(comment_group: [:text])
     end
 
-    # before actions
-
-    # def user_or_admin
-    #   Account.find(params[:account_id]).user == current_user || current_user.admin?
-    # end
 end

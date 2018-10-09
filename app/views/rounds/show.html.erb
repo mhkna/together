@@ -4,8 +4,6 @@
     Like and comment on the latest post by the users below.
   </p>
 
-  <h3><%= @round.accounts.first.try(:website).try(:capitalize) %></h3>
-
   <div>
     <%= pluralize(@round.matches.count, "match") %><br /><br />
   </div>

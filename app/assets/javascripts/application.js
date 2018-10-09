@@ -16,16 +16,26 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+let approaching = false
 
 $(document).ready(function() {
   $('#timer').on('DOMSubtreeModified', function() {
-    const myTime = $('#timer').text()
-    const status = $('#round-status').text()
-    const roundId = $('#round-id').text().trim()
-    if (myTime === "00:01" && status === "round begins") {
-      document.location.href = "/rounds/" + roundId;
-    } else if (myTime === "00:01" && status === "*IN PROGRESS*") {
-      document.location.href = "/accounts/new";
+    const myTime = $('#timer').text();
+    if (myTime === "00:01" && approaching === false) {
+      approaching = true;
+      return;
+    }
+    if (myTime === "00:00" && approaching) {
+      approaching = false
+      const status = $('#round-status').text();
+      if (status === "round begins") {
+        console.log("HI")
+        const roundId = $('#round-id').text().trim();
+        document.location.href = "/rounds/" + roundId;
+      } else if (status === "*IN PROGRESS*") {
+        console.log("BYE")
+        document.location.href = "/accounts/new";
+      }
     }
   })
 })

@@ -11,9 +11,9 @@ class SharedController < ApplicationController
     def round_happening
       happening_now = round_in_progress?
       has_entry = user_in_round?
-      if round_in_progress && has_entry
-        redirect_to round_path(Round.last)
-      elsif round_in_progress && !has_entry
+      if happening_now && has_entry
+        redirect_to round_path(current_round)
+      elsif happening_now && !has_entry
         redirect_to 'static_pages/wait_room'
       end
     end

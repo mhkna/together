@@ -15,10 +15,10 @@ module ApplicationHelper
   end
 
   def round_in_progress?
-    (Time.now.strftime('%M').to_i < 7) || (Time.now.strftime('%M%S').to_i >= 5958)
+    (Time.now.strftime('%M%S').to_i < 659) || (Time.now.strftime('%M%S').to_i >= 5958)
   end
 
-  def current_round_id
-    Round.last.id
+  def current_round
+    Round.last
   end
 end
