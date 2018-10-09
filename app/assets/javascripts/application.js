@@ -29,11 +29,9 @@ $(document).ready(function() {
       approaching = false
       const status = $('#round-status').text();
       if (status === "round begins") {
-        console.log("HI")
         const roundId = $('#round-id').text().trim();
         document.location.href = "/rounds/" + roundId;
       } else if (status === "*IN PROGRESS*") {
-        console.log("BYE")
         document.location.href = "/accounts/new";
       }
     }

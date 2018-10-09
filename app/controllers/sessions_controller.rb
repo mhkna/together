@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
       if has_entry && happening_now
         redirect_to round_path(Round.last)
       elsif !has_entry && happening_now
-        redirect_to 'static_pages/wait_room'
+        redirect_to wait_path
       elsif has_entry && !happening_now
         redirect_to :controller => 'accounts', :action => 'show', id: current_user.accounts.last.id
       else

@@ -1,6 +1,6 @@
 class AccountsController < SharedController
   def index
-    redirect_to nash_path unless current_user.admin?
+    redirect_to nah_path unless current_user.admin?
     @accounts = Account.all
   end
 

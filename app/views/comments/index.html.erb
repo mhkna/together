@@ -1,8 +1,4 @@
 <div class="comments-index-contain">
-  <div>
-    <%= link_to 'Back', account_path(@account) %>
-  </div>
-
   <% @comments.each do |comment| %>
     <div style="margin-bottom:5px;">
       <%= comment.text %>
@@ -10,4 +6,6 @@
       <%= link_to 'Delete', account_comment_path(@account, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
     </div>
   <% end %>
+
+  <%= link_to 'Back', account_path(@account), id: "leave-round"%>  
 </div>

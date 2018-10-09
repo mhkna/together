@@ -19,9 +19,8 @@ class CommentsController < SharedController
     @account = Account.find(params[:account_id])
     redirect_to account_path(@account) and return if @account.comments.count > 0
     comment_params[:comment_group].each do |comment_hash|
-      if comment_hash[:text] != ""
-        @account.comments.create(comment_hash)
-      end
+    # if comment_hash[:text] != ""
+    @account.comments.create(comment_hash)
     end
 
     redirect_to account_url(@account)
@@ -33,19 +32,16 @@ class CommentsController < SharedController
     # @comment = @account.comments.find(params[:id])
     @comment_group = []
     @account.comments.each { |comment| @comment_group << comment }
-    p @comment_group
   end
 
   def update
     @account = Account.find(params[:account_id])
     redirect_to nah_path and return unless authorized? || current_user.admin?
-    @comment = @account.comments.find(params[:id])
-
-    if @comment.update_attributes(comment_params)
-      redirect_to account_url(@account)
-    else
-      render 'edit'
+    comment_params[:comment_group].each do |comment_hash|
+      comment = @account.comments.find(comment_hash[0])
+      comment.update_attributes(comment_hash[1])
     end
+    redirect_to account_url(@account)
   end
 
   def destroy

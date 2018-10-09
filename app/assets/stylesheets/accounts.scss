@@ -11,9 +11,15 @@
 }
 
 .comment-text {
+  position: relative;
   font-size: 150%;
   margin: 10px 0;
 }
+// 
+// .comment-text > div {
+//   position: absolute;
+//   font-size: 50%;
+// }
 
 #username {
   font-size: 300%;

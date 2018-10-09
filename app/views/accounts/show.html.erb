@@ -16,14 +16,18 @@
   <div class="heading">
     Comments
     <span>
-      <%= link_to 'Edit', edit_account_comment_path(@account, @account.comments) %>
+      <%= link_to 'Edit', edit_account_comment_path(@account, 'current') %>
     </span>
   </div>
-  <% @account.comments.each_with_index do |comment, i| %>
-  <span><%= i + 1 %>.</span>
-    <div class="comment-text">
-      <%= comment.text %>
-    </div>
+  <% count = 1 %>
+  <% @account.comments.each do |comment| %>
+    <% if comment.text != "" %>
+      <div class="comment-text">
+        <span><%= count %>.</span>
+        <%= comment.text %>
+      </div>
+      <% count += 1 %>
+    <% end %>
   <% end %>
 <% end %>
 

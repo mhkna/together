@@ -14,7 +14,7 @@ class SharedController < ApplicationController
       if happening_now && has_entry
         redirect_to round_path(current_round)
       elsif happening_now && !has_entry
-        redirect_to 'static_pages/wait_room'
+        redirect_to wait_path
       end
     end
 end
