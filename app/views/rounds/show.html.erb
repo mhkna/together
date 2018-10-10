@@ -9,19 +9,24 @@
   </div>
 
 
-  <div class="total-row">
-    <% @round.matches.each_with_index do |account, i| %>
+  <% @round.matches.each_with_index do |account, i| %>
+    <div class="row-container">
       <div class="box-left">
-        <strong><%= account.username %></strong>
+        <%= link_to "#{account.username}", "https://www#com/#{account.username}", :target => "_blank" %>
       </div>
-      <div class="box-right">
-        <% if account.comments[i] != nil %>
+      <% if account.comments[i] != nil %>
+        <div class="box-right comment-copy-<%= i %>">
+          <button class="clipboard-btn" data-clipboard-action="copy" data-clipboard-target=".comment-copy-<%= i %>">
+            <i class="far fa-copy"></i>
+          </button>
           <%= account.comments[i].text %>
-        <% else %>
+        </div>
+      <% else %>
+        <div class="box-right">
           <%= "x" %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 
 </div>

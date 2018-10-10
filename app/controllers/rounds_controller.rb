@@ -26,5 +26,5 @@ class RoundsController < ApplicationController
         redirect_to wait_path
       end
     end
-    
+
 end

@@ -69,3 +69,12 @@ input[type=submit] {
 .main-content {
   /* margin-left: 150px; */
 }
+
+ .clipboard-btn {
+   font-size: 80%;
+   border: none;
+   border-radius: 7px;
+   color: rgb(69, 194, 183);
+   padding: 3px 10px;
+   margin-right: 5px;
+ }

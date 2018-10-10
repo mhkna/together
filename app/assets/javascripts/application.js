@@ -15,10 +15,13 @@
 //= require jquery
 //= require activestorage
 //= require turbolinks
+//= require clipboard
 //= require_tree .
+
 let approaching = false
 
 $(document).ready(function() {
+
   $('#timer').on('DOMSubtreeModified', function() {
     const myTime = $('#timer').text();
     if (myTime === "00:01" && approaching === false) {
@@ -36,4 +39,7 @@ $(document).ready(function() {
       }
     }
   })
+
+  var clipboard = new Clipboard('.clipboard-btn');
+  console.log(clipboard);
 })
