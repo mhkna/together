@@ -6,7 +6,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 
-class Clock extends React.Component {
+class Timer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -51,7 +51,7 @@ class Clock extends React.Component {
 
   setText() {
     if ((59 - new Date().getMinutes()) >= 53) {
-      return "*IN PROGRESS*"
+      return "IN PROGRESS"
     } else {
       return "round begins"
     }
@@ -68,6 +68,6 @@ class Clock extends React.Component {
 }
 
 ReactDOM.render(
-  <Clock />,
+  <Timer />,
   document.getElementById('counter')
 );

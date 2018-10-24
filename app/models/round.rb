@@ -36,29 +36,3 @@ class Round < ApplicationRecord
       self.accounts.where('id < ?', account_id)
     end
 end
-
-
-# needs crazy refactor
-# def matchezzz(account_id, match_amount)
-#   higher_accounts = self.accounts.where('id > ?', account_id)
-#   matches = higher_accounts.first(match_amount)
-#
-#   if matches.count == match_amount
-#     return matches
-#   else
-#     accounts_needed = match_amount - matches.count
-#   end
-#
-#   lower_accounts = self.accounts.where('id < ?', account_id)
-#   more_matches = lower_accounts.first(accounts_needed)
-#
-#   concat_matches = []
-#   matches.each do |match|
-#     concat_matches << match
-#   end
-#   more_matches.each do |match|
-#     concat_matches << match
-#   end
-#
-#   return concat_matches
-# end

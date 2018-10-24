@@ -18,18 +18,23 @@ class CommentsController < SharedController
   def create
     @account = Account.find(params[:account_id])
     redirect_to account_path(@account) and return if @account.comments.count > 0
+
+    over_length = false
     comment_params[:comment_group].each do |comment_hash|
-    # if comment_hash[:text] != ""
-    @account.comments.create(comment_hash)
+      @account.comments.create(comment_hash)
+      if comment_hash[:text].length > 120
+        over_length = true
+        @account.comments.create({text: ""})
+      end
     end
 
+    flash[:notice] = "Removed comment(s) exceeded the 120 character limit." if over_length
     redirect_to account_url(@account)
   end
 
   def edit
     @account = Account.find(params[:account_id])
     redirect_to nah_path and return unless authorized? || current_user.admin?
-    # @comment = @account.comments.find(params[:id])
     @comment_group = []
     @account.comments.each { |comment| @comment_group << comment }
   end

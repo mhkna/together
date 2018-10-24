@@ -34,7 +34,7 @@ $(document).ready(function() {
       if (status === "round begins") {
         const roundId = $('#round-id').text().trim();
         document.location.href = "/rounds/" + roundId;
-      } else if (status === "*IN PROGRESS*") {
+      } else if (status === "IN PROGRESS") {
         document.location.href = "/accounts/new";
       }
     }
