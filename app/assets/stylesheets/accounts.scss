@@ -15,11 +15,6 @@
   font-size: 150%;
   margin: 10px 0;
 }
-// 
-// .comment-text > div {
-//   position: absolute;
-//   font-size: 50%;
-// }
 
 #username {
   font-size: 300%;
@@ -61,11 +56,11 @@ span {
 }
 
 .main-container {
-  border: 1px dotted gray;
-  border-radius: 10px;
+  border: 35px solid rgb(69, 194, 183);
   margin: 0 auto;
   padding: 20px 0;
   width: 300px;
+  z-index: -11;
 }
 
 .box-heading {

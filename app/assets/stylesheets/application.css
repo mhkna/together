@@ -39,10 +39,10 @@
  position: absolute;
  top: 0px;
  left: 0px;
- border-right: 1px dotted gray;
  height: 100%;
- padding: 10px;
  width: 150px;
+ background-color: rgb(199, 199, 199);
+ z-index: -10;
 }
 
 .page-heading {
@@ -67,7 +67,8 @@ input[type=submit] {
 }
 
 .main-content {
-  /* margin-left: 150px; */
+  margin-left: 150px;
+  background-color: rgb(215, 215, 215);
 }
 
  .clipboard-btn {
