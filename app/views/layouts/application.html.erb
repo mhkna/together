@@ -20,11 +20,11 @@
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
 
-      <div class="center" style="position:relative">
+      <div class="center">
         <div id="counter-container">
           <div id="counter"></div>
         </div>
-        <div class="main-content">
+        <div id="main-container">
           <%= yield %>
         </div>
         <%= javascript_pack_tag 'timer' %>
@@ -36,7 +36,6 @@
 
       <%= render 'layouts/footer' %>
     </div>
+    <%= debug(params) if Rails.env.development? %>
   </body>
 </html>
-<br /><br /><br />
-<%= debug(params) if Rails.env.development? %>

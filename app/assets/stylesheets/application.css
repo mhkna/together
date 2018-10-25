@@ -36,13 +36,18 @@
 }
 
 #counter-container {
- position: absolute;
- top: 0px;
- left: 0px;
- height: 100%;
- width: 150px;
- background-color: rgb(199, 199, 199);
- z-index: -10;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 150px;
+  background-color: rgb(199, 199, 199);
+}
+
+#main-container {
+  min-width: 670px;
+  height: 100%;
+  background-color: rgb(215, 215, 215);
 }
 
 .page-heading {
@@ -66,16 +71,11 @@ input[type=submit] {
   padding: 0;
 }
 
-.main-content {
-  margin-left: 150px;
-  background-color: rgb(215, 215, 215);
+.clipboard-btn {
+ font-size: 80%;
+ border: none;
+ border-radius: 7px;
+ color: rgb(69, 194, 183);
+ padding: 3px 10px;
+ margin-right: 5px;
 }
-
- .clipboard-btn {
-   font-size: 80%;
-   border: none;
-   border-radius: 7px;
-   color: rgb(69, 194, 183);
-   padding: 3px 10px;
-   margin-right: 5px;
- }

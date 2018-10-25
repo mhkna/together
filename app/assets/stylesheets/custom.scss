@@ -1,34 +1,25 @@
-/* mixins, variables, etc. */
+/*----------- mixins, variables, etc. -----------*/
 
 $gray-medium-light: #eaeaea;
 
-/* universal */
+/*----------- universal -----------*/
 
-html {
+html, body {
   font-family: 'Lato', 'Open Sans', 'Arial', sans-serif;
-}
-
-body {
   margin: 0 !important;
   padding: 0 !important;
+  height: 100vh;
 }
-
-// section {
-//   overflow: auto;
-// }
-//
-// textarea {
-//   resize: vertical;
-// }
 
 .center {
   text-align: center;
+  position: relative;
   h1 {
     margin-bottom: 10px;
   }
 }
 
-/* typography */
+/*----------- typography -----------*/
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
@@ -54,14 +45,14 @@ p {
   line-height: 1.7em;
 }
 
-/* header */
+/*----------- header -----------*/
 
 #logo-under {
   font-family: none;
   position: absolute;
   left: 20px;
   top: 13px;
-  z-index: -2;
+  z-index: -1;
   font-size: 3.7em;
   color: black;
   overflow: hidden;
@@ -100,13 +91,14 @@ header {
   }
 }
 
-/* footer */
+/*----------- footer -----------*/
 
 footer {
-  margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $gray-medium-light;
   color: gray;
+  background-color: blue;
+  height: 50px;
   a {
     color: gray;
     text-decoration: none;
