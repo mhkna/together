@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$turq: rgb(69, 194, 183);
+
 .field {
   margin: 0 0 15px 0;
 }
@@ -34,16 +36,16 @@ span {
 #leave-round, #leave-round:hover{
   margin: 20px 0 0;
   text-decoration: none;
-  border: 1px solid rgb(69, 194, 183);
+  border: 1px solid $turq;
   border-radius: 10px;
-  color: rgb(69, 194, 183);
+  color: $turq;
   padding: 5px 15px;
 }
 
 .enter-round, .enter-round:hover {
   text-decoration: none;
-  background-color: rgb(69, 194, 183);
-  border: 1px solid rgb(69, 194, 183);
+  background-color: $turq;
+  border: 1px solid $turq;
   border-radius: 10px;
   color: white;
   margin-right: 5px;
@@ -51,24 +53,20 @@ span {
 }
 
 .fa-check {
-  color: rgb(69, 194, 183);
+  color: $turq;
   font-size: 150%;
 }
 
 .page-wrapper {
-  border: 35px solid rgb(69, 194, 183);
-  padding: 10px 0 30px 0;
+  border: 35px solid $turq;
+  padding: 0 0 30px 0;
   width: 300px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .box-heading {
-  border-bottom: 1px dotted gray;
-}
-
-#wait-text {
-  color: rgb(69, 194, 183);
-  margin-bottom: 20px;
+  border-bottom: 1px solid rgb(199, 199, 199);
 }
 
 table {

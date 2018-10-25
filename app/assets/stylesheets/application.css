@@ -14,44 +14,59 @@
  *= require_self
  */
 
+.content {
+  height: 100%;
+  width: 100%;
+}
+
+.center {
+  margin: 0 auto;
+}
+
 #timer {
   font-size: 150%;
 }
 
 .alert {
   color:red;
+  position: absolute;
+  left: 50%;
+  top: 60px;
+  transform: translate(-50%, -50%);
 }
 
-#counter {
+.left-absolute #counter {
   position: absolute;
-  top: 70px; left: 50%;
-  transform: translate(-50%,-50%);
-  width: 100%;
+  top: 30px;
+  left: 35px;
 }
 
 #counter > div {
-  width: 70%;
   margin: 0 auto;
   text-align: right;
 }
 
-#counter-container {
+.left-absolute {
   position: absolute;
-  top: 0px;
-  left: 0px;
+  left: 0;
+  top: 0;
   height: 100%;
-  width: 150px;
+  width: 160px;
   background-color: rgb(199, 199, 199);
+  overflow: visible;
 }
 
-#main-container {
-  min-width: 670px;
+.main {
+  position: relative;
+  width: 100%;
+  min-width: 690px;
   height: 100%;
   background-color: rgb(215, 215, 215);
 }
 
 .page-heading {
   margin: 20px 0;
+  font-size: 1.8em;
 }
 
 input[type=submit] {
@@ -60,6 +75,15 @@ input[type=submit] {
   border-radius: 10px;
   color: white;
   padding: 5px 15px;
+  font-size: 1.1em;
+}
+
+input[type=text] {
+  font-size: 105%;
+}
+
+select {
+  font-size: 105%;
 }
 
 #error_explanation li {
@@ -78,4 +102,11 @@ input[type=submit] {
  color: rgb(69, 194, 183);
  padding: 3px 10px;
  margin-right: 5px;
+}
+
+.wait-text {
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%, -50%);
 }

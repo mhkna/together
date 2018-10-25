@@ -1,6 +1,6 @@
 /*----------- mixins, variables, etc. -----------*/
 
-$gray-medium-light: #eaeaea;
+// $gray-medium-light: #eaeaea;
 
 /*----------- universal -----------*/
 
@@ -8,15 +8,16 @@ html, body {
   font-family: 'Lato', 'Open Sans', 'Arial', sans-serif;
   margin: 0 !important;
   padding: 0 !important;
-  height: 100vh;
+  height: 100%;
 }
 
-.center {
-  text-align: center;
-  position: relative;
-  h1 {
-    margin-bottom: 10px;
-  }
+.wrapper {
+  padding-top: 50px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 /*----------- typography -----------*/
@@ -41,8 +42,9 @@ h2 {
 }
 
 p {
-  font-size: 1.1em;
+  font-size: 1.4em;
   line-height: 1.7em;
+  margin: 0.5em;
 }
 
 /*----------- header -----------*/
@@ -61,7 +63,8 @@ p {
 }
 
 header {
-  height: 50px;
+  margin-top: -50px;
+  height: 51px;
   background-color: black;
   #logo {
     font-family: none;
@@ -72,7 +75,7 @@ header {
     letter-spacing: -1px;
     font-weight: bold;
     overflow: hidden;
-    max-height: 37px;
+    max-height: 38px;
   }
   ul {
     float: right;
@@ -94,11 +97,12 @@ header {
 /*----------- footer -----------*/
 
 footer {
-  padding-top: 5px;
-  border-top: 1px solid $gray-medium-light;
+  border-top: 1px solid black;
   color: gray;
-  background-color: blue;
-  height: 50px;
+  background-color: black;
+  height: 70px;
+  // margin-bottom: -50px;
+  opacity: 0.8;
   a {
     color: gray;
     text-decoration: none;
