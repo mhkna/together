@@ -10,6 +10,7 @@ gem 'whenever', require: false
 gem 'sprockets', '~>3.7.2'
 gem 'jquery-rails'
 gem 'clipboard-rails'
+gem 'simplecov', require: false, group: :test
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
